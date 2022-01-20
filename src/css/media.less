@@ -1,13 +1,15 @@
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-	.advItem__text {
+.ie11({
+
+  .advItem__text {
 		max-width: 100%; /* for IE 11 */
 	}
 
-	.container-stats{
+	.container-stats {
 		display: flex;
 	}
 
-	.statItems{
+	.statItems {
 		width: 100%;
 	}
-}
+
+});

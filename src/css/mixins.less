@@ -1,0 +1,14 @@
+.shadow(@color: "#222") {
+  box-shadow: 5px 5px 10px @color;
+} 
+
+.size(@n, @c: @columns, @o: @offset) {
+  @w: (100% / @c) * @n;
+  width: calc(@w - @o);
+}
+
+.ie11(@content) {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content();
+  }
+}
