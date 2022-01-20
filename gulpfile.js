@@ -6,6 +6,7 @@ const cleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
 const gcmq = require('gulp-group-css-media-queries');
 const webp = require('gulp-webp');
+const less = require('gulp-less');
 const browserSync = require("browser-sync").create();
 const gulpIf = require("gulp-if");
 const webpack = require('webpack-stream');
@@ -30,6 +31,11 @@ const paths = {
   styles: { 
       main: './src/css/main.scss',
       src: './src/css/**/*.css',
+      dest: './build/css'
+  },
+  styles_less: {
+    main: './src/css/main.less',
+      src: './src/css/**/*.less',
       dest: './build/css'
   },
   scripts: {
@@ -68,6 +74,21 @@ function styles() {
     .pipe(gulpIf(isSync,browserSync.stream()));
 }
 
+function styles_less() {
+  return gulp
+    .src(paths.styles_less.src)
+    .pipe(gulpIf(isMap,sourcemaps.init()))
+    .pipe(less())    
+    .pipe(gcmq())
+    .pipe(autoprefixer())    
+    .pipe(gulpIf(isMinify, cleanCSS({
+      level: 2,
+    })))
+    .pipe(gulpIf(isMap,sourcemaps.write()))
+    .pipe(gulp.dest(paths.styles_less.dest))
+    .pipe(gulpIf(isSync,browserSync.stream()));
+}
+
 function scripts() {
   return gulp.src(paths.scripts.src)
         .pipe(webpack(webpackConfig))
@@ -94,11 +115,12 @@ function watch() {
       },
     })
   }
-  gulp.watch(paths.styles.src, styles);
+  //gulp.watch(paths.styles.src, styles);
+  gulp.watch(paths.styles_less.src, styles_less);
   gulp.watch(paths.html.src, html);
 }
 
-let build = gulp.parallel(html, styles, images);
+let build = gulp.parallel(html, styles_less, images);
 //let build = gulp.parallel(html, styles, images, imagesToWebp, scripts);
 let buildWithClean = gulp.series(clean, build);
 let dev = gulp.series(buildWithClean, watch);
