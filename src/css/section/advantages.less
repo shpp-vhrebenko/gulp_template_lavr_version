@@ -1,4 +1,12 @@
+.advItems{
+	display: flex;
+}
+
 .advItem {
+  width: calc(100% / 3); /* 33.3333334%  for IE 11 */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	box-sizing: border-box;
 	color: #ffffff;
 	text-align: center;
@@ -38,6 +46,7 @@
 }
 
 .advItem__btn {
+  margin-top: auto;
 	transition: background 0.3s, color 0.3s;
 }
 
