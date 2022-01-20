@@ -1,0 +1,26 @@
+.advantages, .stats {
+	max-width: 2048px;
+	margin: 0 auto;
+}
+
+.container{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 992px){
+	.advItems{
+		display: flex;
+	}
+
+	.advItem{
+		width: calc(100% / 3); /* 33.3333334%  for IE 11 */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.advItem__btn {
+		margin-top: auto;
+	}
+}
