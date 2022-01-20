@@ -35,7 +35,7 @@ const paths = {
   },
   styles_less: {
     main: './src/css/main.less',
-      src: './src/css/**/*.less',
+      src: './src/css/main.less',
       dest: './build/css'
   },
   scripts: {
