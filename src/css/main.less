@@ -2,10 +2,13 @@
 @import  "mixins.less";
 @import (less) "normalize.css";
 @import  "base.less";
-@import  "section/advantages.less";
-@import  "section/blog.less";
-@import  "section/stats.less";
-@import  "media.less";
+@import "smart-grid.less";
+
+.reset();
+
+/* .debugGrid{
+	.debug(rgba(0,0,0, 0.5), 1px #ff0 solid);
+} */
 
 .advantages, .stats {
 	max-width: 2048px;
@@ -13,7 +16,10 @@
 }
 
 .container{
-	max-width: 1170px;
-	margin: 0 auto;
-	padding: 0 15px;
+	.wrapper();
 }
+
+@import  "section/advantages.less";
+@import  "section/blog.less";
+@import  "section/stats.less";
+@import  "media.less";

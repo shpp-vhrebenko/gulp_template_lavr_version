@@ -33,6 +33,7 @@
   "browserslist": "> .5% or last 2 versions",
   "dependencies": {
     "jquery": "^3.6.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "smart-grid": "^2.1.2"
   }
 }

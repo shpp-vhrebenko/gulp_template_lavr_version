@@ -9,6 +9,8 @@ const webp = require('gulp-webp');
 const less = require('gulp-less');
 const browserSync = require("browser-sync").create();
 const gulpIf = require("gulp-if");
+const smartGrid = require('smart-grid');
+const path = require('path');
 const webpack = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
 
@@ -35,7 +37,7 @@ const paths = {
   },
   styles_less: {
     main: './src/css/main.less',
-      src: './src/css/main.less',
+      src: './src/css/**/*.less',
       dest: './build/css'
   },
   scripts: {
@@ -45,7 +47,11 @@ const paths = {
   images: {
       src: './src/img/**/*',
       dest: './build/img'
-  }
+  },
+  smartgrid: {
+      src: './src/css',
+      options: './smartgrid.js'
+  }  
 }
 
 function clean() {
@@ -76,7 +82,7 @@ function styles() {
 
 function styles_less() {
   return gulp
-    .src(paths.styles_less.src)
+    .src(paths.styles_less.main)
     .pipe(gulpIf(isMap,sourcemaps.init()))
     .pipe(less())    
     .pipe(gcmq())
@@ -118,7 +124,16 @@ function watch() {
   //gulp.watch(paths.styles.src, styles);
   gulp.watch(paths.styles_less.src, styles_less);
   gulp.watch(paths.html.src, html);
+  gulp.watch(paths.smartgrid.options, grid);
 }
+
+function grid(done) {
+  delete require.cache[path.resolve(paths.smartgrid.options)]
+  let options = require(paths.smartgrid.options);
+  smartGrid(paths.smartgrid.src, options);
+  done();
+}
+
 
 let build = gulp.parallel(html, styles_less, images);
 //let build = gulp.parallel(html, styles, images, imagesToWebp, scripts);
@@ -127,3 +142,4 @@ let dev = gulp.series(buildWithClean, watch);
 
 gulp.task("build", buildWithClean);
 gulp.task("watch", dev);
+gulp.task('grid', grid);
