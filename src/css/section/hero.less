@@ -1,0 +1,21 @@
+.hero {
+  max-width: 2048px;
+  min-height: 620px;
+  margin: 0 auto;  
+  background: url("../img/slaid1.jpg") no-repeat center;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 620px;
+  }
+  &__inner {    
+    text-align: center;    
+    h2 {
+      color: @color_white;
+    }
+  }
+  &__buttons {
+    display: inline-block;
+  }
+}

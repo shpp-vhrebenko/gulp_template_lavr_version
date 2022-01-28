@@ -1,0 +1,40 @@
+.header {
+  &__inner {
+    .row-flex();
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+  }
+
+  &__logo {
+    .col();
+    img {
+      width: 200px;
+      height: 50px;
+    }  
+  }
+
+  &__nav {
+    .col();
+  }
+}    
+
+.nav {  
+  display: flex;  
+  font-weight: 700;
+
+  &__item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__link {
+    padding: 10px 0;
+    text-decoration: none;
+    color: @color_dark;
+  }
+
+  &__link:hover,
+  &__link:active {
+    color: @color_green;
+  }
+}

@@ -1,24 +1,20 @@
 @import  "vars.less";
 @import  "mixins.less";
 @import (less) "normalize.css";
-@import  "base.less";
 @import "smart-grid.less";
-
 .reset();
+
+
 
 /* .debugGrid{
 	.debug(rgba(0,0,0, 0.5), 1px #ff0 solid);
 } */
 
-.advantages, .stats {
-	max-width: 2048px;
-	margin: 0 auto;
-}
-
-.container{
-	.wrapper();
-}
-
+@import  "base.less";
+@import  "section/header.less";
+@import  "section/hero.less";
+@import  "section/present.less";
+@import  "section/tools.less";
 @import  "section/advantages.less";
 @import  "section/blog.less";
 @import  "section/stats.less";

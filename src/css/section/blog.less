@@ -1,12 +1,11 @@
 .blogItems{
-	display: flex;
-	flex-wrap: wrap;
-	margin: @offset_one_side * -1;
+	.row-flex();
 }
 
 .blogItem{
-	width: calc(100% / @columns * 4 - @offset);
-	margin: @offset_one_side;
+  .col();
+	.size(4);
+  text-align: center;
 
   &__title {
     color: @color_dark;
