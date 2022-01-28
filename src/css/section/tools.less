@@ -1,12 +1,15 @@
 .tools {
+  background-color: @color_lite_grey;
   &__items {
     .row-flex();
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
   &__item {
     .col();
     .size(4);
     margin: @offset_one_side;
-    padding-left: 70px;
+    padding-left: 80px;    
     &.responsive {
       background: url("../img/iconPersonal.png") no-repeat top left;
     }
@@ -24,6 +27,25 @@
     }
     &.features {
       background: url("../img/iconMoreF.png") no-repeat top left;
+    }
+  }
+  &-item {
+    &__title {
+      margin-bottom: 20px;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    &__description {
+      margin-bottom: 25px;
+      text-align: left;
+      color: #888;
+      font-size: 14px;
+      line-height: 23px;
+    }
+    &__link {
+      color: @color_green;
+      text-decoration: none;
     }
   }
 }

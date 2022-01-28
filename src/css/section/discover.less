@@ -1,0 +1,68 @@
+.discover {
+  min-height: 568px;
+  padding: 70px 0;
+  &__inner {
+    .row-flex();
+  }
+  &__img {
+    .col();
+    .size(6);
+  }
+  &__info {
+    padding: 40px 0;
+    text-align: left;
+    .col();
+    .size(6);
+    h2 {
+      text-align: inherit;
+    }
+    p {
+      margin-bottom: 35px;
+      color: @color_middle;
+      font-size: 14px;
+      line-height: 23px;      
+    }
+  }
+
+  &-list__item {
+    position: relative;
+    padding-left: 80px;
+    height: 60px;
+    font-size: 18px;
+    line-height: 60px;
+    color: @color_green;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: @color_lite_grey;
+    }
+    &--portfolio:before {
+      background-image: url("../img/iconPortfolio.png");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &--coment:before {
+      background-image: url("../img/iconComent.png");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &--edit:before {
+      background-image: url("../img/iconEdit.png");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &--key:before {
+      background-image: url("../img/iconKey.png");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
