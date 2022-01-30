@@ -1,11 +1,103 @@
-.packages {
+.packages {  
   &__inner {
     .row-flex();
-  }
+    .sm-block({
+      justify-content: center;
+    });
+  }  
 
   &__item {
     .col();
     .size(4);
+    .size-md(4);
+    .size-sm(6);
+    .sm-block({
+      margin: @offset_sm_one_side;
+    }); 
+    padding: 35px 0;
+    text-align: center;
+    background-color: @color_lite_grey;    
+  }
+
+  &-item {
+    &__name {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+    &__price {  
+      position: relative;
+      margin-bottom: 25px;
+      font-size: 24px;
+      padding: 15px 0;      
+      color: @color_white;
+      background-color: @color_green;
+      span {
+        font-size: 32px;
+      } 
+      small {
+        font-size: 60%;
+        font-weight: 200;
+      }  
+      .currency {
+        display: inline-block;
+        transform: translateY(-12px);
+      }    
+    }
+    &__list {
+      color: @color_middle;
+      font-size: 14px;
+      line-height: 23px;
+      li {
+        display: inline-block;
+        position: relative;
+        padding-left: 30px;
+        &.on {
+          &:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 13px;
+            width: 12px;
+            height: 3px;
+            background-color: @color_green;
+            transform: rotate(-45deg);
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 6px;
+            height: 3px;
+            background-color: @color_green;
+            transform: rotate(45deg);
+          }
+        }
+        &.off {
+          &:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 12px;
+            height: 3px;
+            background-color: @color_middle;
+            transform: rotate(-45deg);
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 12px;
+            height: 3px;
+            background-color: @color_middle;
+            transform: rotate(45deg);
+          }
+        }
+      }
+        
+    }
   }
 }
 

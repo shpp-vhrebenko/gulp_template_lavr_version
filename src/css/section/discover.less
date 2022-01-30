@@ -7,12 +7,24 @@
   &__img {
     .col();
     .size(6);
+    .size-sm(12);
+    img {
+      .sm-block({
+        display: block;
+        margin: 0 auto;
+        border: 1px solid red;
+      });
+    }
   }
   &__info {
     padding: 40px 0;
     text-align: left;
     .col();
     .size(6);
+    .size-sm(12);
+    .sm-block({
+      text-align: center;
+    });
     h2 {
       text-align: inherit;
     }
@@ -31,6 +43,9 @@
     font-size: 18px;
     line-height: 60px;
     color: @color_green;
+    .sm-block({
+      display: inline-block;
+    });
     &:not(:last-child) {
       margin-bottom: 10px;
     }

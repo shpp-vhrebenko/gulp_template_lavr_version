@@ -47,13 +47,32 @@ h2,
 }
 
 .btn-green {
-	background-color: #1d9d73;
-	color: #ffffff;
+	background-color: @color_green;
+	color: @color_white;
+	border: 1px solid @color_green;
+	&:hover {
+		background-color: @color_green_dark;
+	}
+}
+
+.btn-transparent {	
+	background-color: transparent;
+	color: @color_white;
+	border: 1px solid @color_white;
+	&:hover {
+		background-color: @color_green;
+		color: @color_white;
+		border: 1px solid @color_green;
+	}
 }
 
 .btn-white {
 	border: 1px solid #ffffff;
 	color: #ffffff;
+}
+
+main {
+	padding-bottom: 50px;
 }
 
 .container{
