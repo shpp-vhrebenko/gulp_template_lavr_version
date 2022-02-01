@@ -1,5 +1,5 @@
 html, body{
-	margin: 0;
+	margin: 0;	
 }
 
 img {
@@ -8,7 +8,8 @@ img {
 }
 
 body {
-	font-family: Ubuntu;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 16px;
 }
 
 h1,
@@ -47,9 +48,10 @@ h2,
 }
 
 .btn-green {
+	box-sizing: border-box;
 	background-color: @color_green;
 	color: @color_white;
-	border: 1px solid @color_green;
+	border: 1px solid transparent;
 	&:hover {
 		background-color: @color_green_dark;
 	}
@@ -62,7 +64,7 @@ h2,
 	&:hover {
 		background-color: @color_green;
 		color: @color_white;
-		border: 1px solid @color_green;
+		border-color: transparent;
 	}
 }
 

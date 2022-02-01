@@ -1,26 +1,28 @@
 .header {
   &__inner {
-    .row-flex();
-    justify-content: space-between;
+    .row-flex();    
     align-items: center;
-    padding: 14px 0;
+    padding: 14px @offset_one_side;
   }
 
-  &__logo {
-    .col();
+  &__logo {    
+    flex-grow: 0.5;
+    margin-right: @offset_one_side;
+    margin-left: auto;
     img {
       width: 200px;
       height: 50px;
     }  
   }
 
-  &__nav {
-    .col();
+  &__nav {    
+    flex-grow: 0.5;    
   }
 }    
 
 .nav {  
-  display: flex;  
+  display: flex; 
+  justify-content: flex-end; 
   font-weight: 700;
 
   &__item:not(:last-child) {

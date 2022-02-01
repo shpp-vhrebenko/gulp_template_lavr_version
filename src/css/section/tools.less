@@ -6,33 +6,26 @@
     padding-bottom: 50px;
   }
   &__item {
+    display: flex;
     .col();
     .size(4);
     .size-md(4);
     .size-sm(6);
     .size-xs(12);
-    margin: @offset_one_side;
-    padding-left: 80px;    
-    &.responsive {
-      background: url("../img/iconPersonal.png") no-repeat top left;
-    }
-    &.cross-browser {
-      background: url("../img/iconCrossBrowser.png") no-repeat top left;
-    }
-    &.design {
-      background: url("../img/iconCreativ.png") no-repeat top left;
-    }
-    &.bootstrap {
-      background: url("../img/iconBootstrap.png") no-repeat top left;
-    }
-    &.icon-fonts {
-      background: url("../img/icon100.png") no-repeat top left;
-    }
-    &.features {
-      background: url("../img/iconMoreF.png") no-repeat top left;
-    }
+    margin: @offset_one_side; 
   }
   &-item {
+    &__img {
+      padding: 10px;
+      img {
+        display: inline-block;
+        text-align: center;
+        max-width: 75px;
+      }
+    }
+    &__content {
+      padding-top: 20px;
+    }
     &__title {
       margin-bottom: 20px;
       text-align: left;

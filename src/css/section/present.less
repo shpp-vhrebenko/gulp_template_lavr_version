@@ -1,5 +1,6 @@
 .present {
   padding: 20px 0 55px;
+
   &__description {
     color: @color_middle;
     font-size: 14px;
@@ -7,32 +8,37 @@
     text-align: center;
     margin-bottom: 52px;
   }
+
   &-items {
     .row-flex();
     .sm-block({
       justify-content: center;
     });
+
     &__item {
+      text-align: center;
       .col();
       .size(4);
       .size-md(4);
       .size-sm(6);
-      .size-xs(12);
-      text-align: center;
+      .size-xs(12);      
       .sm-block({
         margin: @offset_sm_one_side;
       });
     }
+
     &__title {
       color: @color_green;
       font-size: 20px;
       margin: 20px 0 16px;
     }
+
     &__text {
       color: @color_middle;
       font-size: 14px;
       line-height: 23px;
     }
+
   }
 }
 
