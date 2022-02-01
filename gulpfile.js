@@ -97,7 +97,7 @@ function styles_less() {
 
 function scripts() {
   return gulp.src(paths.scripts.src)
-        .pipe(webpack(webpackConfig))
+        /* .pipe(webpack(webpackConfig)) */
         .pipe(gulp.dest(paths.scripts.dest))
         .pipe(gulpIf(isSync,browserSync.stream()));
 }
@@ -122,6 +122,7 @@ function watch() {
     })
   }
   //gulp.watch(paths.styles.src, styles);
+  gulp.watch(paths.scripts.src, scripts);
   gulp.watch(paths.styles_less.src, styles_less);
   gulp.watch(paths.html.src, html);
   gulp.watch(paths.smartgrid.options, grid);
@@ -135,7 +136,7 @@ function grid(done) {
 }
 
 
-let build = gulp.parallel(html, styles_less, images);
+let build = gulp.parallel(html, styles_less, images, scripts);
 //let build = gulp.parallel(html, styles, images, imagesToWebp, scripts);
 let buildWithClean = gulp.series(clean, build);
 let dev = gulp.series(buildWithClean, watch);
