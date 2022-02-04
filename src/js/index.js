@@ -19,11 +19,39 @@ console.log(curItem);
  */
 
 const navButton = document.querySelector(".header-nav__button");
+const navList = document.querySelector(".header-nav__list");
+
 if(navButton) {
-  const navList = document.querySelector(".header-nav__list");
   navButton.addEventListener("click", function(e) {
     document.body.classList.toggle('lock');
     navButton.classList.toggle("active");
     navList.classList.toggle("active");
   })
+}
+
+const menuLinks = document.querySelectorAll('.nav-list__link[data-goto]');
+if(menuLinks.length > 0) {
+  menuLinks.forEach(menuLink => {
+    menuLink.addEventListener("click", onMenuLinkClick);  
+  });
+
+  function onMenuLinkClick(e) {
+    const menuLink = e.target;
+    if(menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)){
+      const gotoBlock = document.querySelector(menuLink.dataset.goto);
+      const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector("header").offsetHeight;
+
+      if(navButton.classList.contains('active')) {
+        document.body.classList.remove('lock');
+        navButton.classList.remove("active");
+        navList.classList.remove("active");
+      }
+
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: "smooth"
+      });
+      e.preventDefault();
+    }
+  }
 }
